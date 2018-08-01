@@ -1,0 +1,63 @@
+<html>
+<body>
+
+<input type="text" id="userinput" />
+<button onclick="addTo()"> Add </button>
+
+<button onclick="calculate()"> Result </button>
+
+<p id="demo"></p>
+<p id="demo1"></p>
+
+ 
+<script>
+ 
+var myarr = [];
+var i,l;
+var max_count=0, curr=1, max_no;
+var str;
+
+function addTo() {
+   str=document.getElementById("userinput").value;
+   //myarr.push(document.getElementById("userinput").value);
+   //console.log(myarr); //to confirm it has been added to the array
+   myarr=str.split(",");
+   document.getElementById("demo").innerHTML=myarr;
+   myarr.sort();
+   l = myarr.length;
+}
+
+function calculate() {
+	for(i=1;i<l;i++)
+{
+	
+	if(myarr[i]==myarr[i-1])
+{
+		
+		curr++;
+	        }
+	
+	else
+{
+		
+		if(curr>max_count)
+{
+			
+			max_count=curr;
+			
+			max_no=myarr[i-1];
+		
+				  }
+
+		curr=1;	
+            }
+
+
+                       }
+document.getElementById("demo1").innerHTML=max_no;
+}
+
+
+</script>
+</body>
+</html>
